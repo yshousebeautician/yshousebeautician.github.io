@@ -1,0 +1,961 @@
+/* 基础样式 */
+body {
+  margin: 0;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "PingFang SC",
+    "Microsoft YaHei",
+    Arial,
+    sans-serif;
+
+  background: #0f0f0f;
+  color: #f5f5f5;
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px;
+}
+
+h1, h2 {
+  font-weight: 600;
+}
+
+/* Hero 背景 + 黑色渐变遮罩 */
+.hero {
+.hero-title,
+.hero-sub,
+.hero-btn {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+  min-height: 100vh;
+  text-align: center;
+  padding: 80px 20px;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.65)
+    ),
+    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  line-height: 1.2;
+}
+
+h2 {
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 30px;
+  background: #c9a24d;
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #ffd966;
+  transform: translateY(-3px);
+}
+
+/* Section */
+.section {
+  margin-top: 80px;
+}
+
+/* Grid 卡片布局 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 30px;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.55);   /* 高级黑（半透明） */
+  backdrop-filter: blur(6px);        /* 玻璃感 */
+
+  border: 1px solid rgba(201, 162, 77, 0.35); /* 金色细框 */
+  border-radius: 16px;
+
+  padding: 36px 32px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  border-color: rgba(201, 162, 77, 0.7);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 50px 20px;
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+  .container {
+    padding: 40px 15px;
+  }
+}
+/* 顶部 Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px; 
+  z-index: 2000; 
+}
+
+
+@media (max-width: 768px) {
+  .header {
+    height: 64px; 
+  }
+}
+
+/* 滚动后黑色渐变 */
+.header.scrolled {
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0.6)
+  );
+  backdrop-filter: blur(8px);
+}
+
+/* Header 内容居中 */
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+}
+
+/* Logo */
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: #ffffff;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: all 0.3s ease;
+}
+
+/* 滚动后 Logo 变小 */
+.logo.small {
+  font-size: 14px;
+  opacity: 0.85;
+}
+/* 滚动后 Header 的状态 */
+.header.scrolled {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+}
+/* 右上角导航菜单 */
+.nav a {
+  margin-left: 30px;
+  font-size: 16px;
+  color: #ffffff;
+  opacity: 0.9;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.nav a:hover {
+  opacity: 1;
+}
+/* 手机时隐藏右上角菜单 */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .header {
+    padding: 0 20px;
+  }
+}
+/* Hero 淡入动画 */
+.fade-in {
+  animation: heroFade 1.2s ease forwards;
+}
+
+@keyframes heroFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* WhatsApp 按钮（默认隐藏） */
+.wa-btn {
+  display: none;
+  padding: 8px 14px;
+  background: #25d366;
+  color: #000;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 20px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* 手机样式 */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .wa-btn {
+    display: inline-block;
+  }
+
+  .header-inner {
+    justify-content: space-between;
+  }
+}
+/* 悬浮 WhatsApp 按钮 */
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  animation: waPulse 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* WhatsApp icon */
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  fill: #000;
+}
+
+/* 呼吸 / 跳动动画 */
+@keyframes waPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+/* 汉堡按钮 */
+.hamburger {
+  display: none;
+  width: 22px;
+  height: 14px;
+
+  flex-direction: column;
+  justify-content: space-between;
+
+  cursor: pointer;
+
+  margin-right: 10px;
+}
+
+.hamburger span {
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* 手机显示 ☰ */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* 手机时缩小 Logo */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 16px;   
+    letter-spacing: 0.5px;
+  }
+}
+
+/* 手机下拉菜单（默认完全隐藏） */
+.mobile-menu {
+  position: fixed;
+  top: 64px; /* 紧贴 header 底部 */
+  left: 0;
+  width: 100%;
+
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+
+  overflow: hidden;        /* ⭐ 关键 */
+  max-height: 0;           /* ⭐ 一开始高度为 0 */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+}
+
+
+
+.mobile-menu a {
+  padding: 16px 0;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* 打开状态 */
+.mobile-menu.open {
+  max-height: 300px; 
+}
+
+
+/* 只在手机启用 */
+@media (max-width: 768px) {
+  .case-grid img {
+    height: 220px;
+  }
+}
+
+/* ☰ 变 ✕ 的动画 */
+.hamburger span {
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+/* 打开状态 */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Case Studies 区块 */
+.case-studies {
+  padding: 100px 20px;
+  background: #0f0f0f;
+  text-align: center;
+}
+
+.case-studies h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+/* 图片网格 */
+.case-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.case-grid img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.case-grid img:hover {
+  transform: scale(1.03);
+}
+/* Case Studies 页面 */
+.case-studies {
+  padding: 140px 20px 80px;
+  text-align: center;
+}
+
+.case-studies h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.case-studies .subtitle {
+  opacity: 0.7;
+  margin-bottom: 50px;
+}
+
+.case-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.case-grid {
+  perspective: 1000px;
+}
+
+.case-grid img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 16px;
+
+  /* 初始状态 */
+  border: 1px solid rgba(201, 162, 77, 0.15);
+  box-shadow: 0 0 0 rgba(201, 162, 77, 0);
+
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+
+.case-grid img:hover {
+  transform: scale(1.04);
+}
+
+/* About Us Page */
+.about-hero {
+  padding: 100px 20px 30px;
+  text-align: center;
+  } 
+
+.about-wrapper {
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.65),
+      rgba(0,0,0,0.85)
+    ),
+    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* 高级感 */
+}
+
+
+.about-hero h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.about-hero p {
+  font-size: 17px;
+  opacity: 0.8;
+  margin-top: 0;
+}
+
+.about-content {
+  max-width: 760px;
+  margin: auto;
+  padding: 0 20px 120px;
+}
+
+.about-content h2 {
+  margin-top: 0;
+  margin-bottom: 32px;
+
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+
+  position: relative;
+}
+
+.about-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+/* About 中英层级 */
+.about-content p.zh {
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 24px;
+  opacity: 1;
+}
+
+.about-content p.en {
+  font-size: 14px;
+  line-height: 1.8;
+  opacity: 0.7;
+  margin-bottom: 0;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* About Us CTA */
+.about-cta {
+  padding: 120px 20px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.9)
+  );
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
+}
+
+.about-cta.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-cta-inner {
+  max-width: 640px;
+  margin: auto;
+}
+
+.about-cta h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.about-cta p.zh {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.about-cta p.en {
+  font-size: 14px;
+  opacity: 0.6;
+  margin-bottom: 40px;
+}
+
+/* CTA Button */
+.cta-btn {
+  display: inline-block;
+  padding: 16px 42px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  background: #c9a24d;
+  border-radius: 999px;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #ffd966;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(201,162,77,0.45);
+}
+
+.about-cta-inner > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.about-cta.show .about-cta-inner > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-cta.show .cta-btn {
+  transition-delay: 0.2s;
+}
+
+
+
+/* About 文案金色区块 */
+.about-block {
+  border: 1px solid rgba(201, 162, 77, 0.7);
+  border-radius: 18px;
+
+  padding: 64px 56px;
+  margin-bottom: 140px;
+
+  background: rgba(0, 0, 0, 0.55);   /* ⭐ 关键：深色遮罩 */
+  backdrop-filter: blur(6px);        /* ⭐ 高级感来源 */
+  box-shadow: 0 30px 80px rgba(0,0,0,0,55);
+
+    opacity: 0;
+  transform: translateY(-4px);
+  transition: all 0.9s ease;
+}
+  .about-block.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 标题在框内的间距 */
+.about-block h2 {
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+.about-block:not(:first-child) {
+  margin-top: 40px;
+}
+
+.about-block:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    gap: 24px;
+  }
+
+  .card {
+    padding: 28px 24px;
+    border-radius: 14px;
+  }
+
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+
+/* ========= 卡片进入动画（唯一版本） ========= */
+.fade-card {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* 顺序延迟（关键） */
+.grid .fade-card:nth-child(1) {
+  animation-delay: 0.15s;
+}
+.grid .fade-card:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.grid .fade-card:nth-child(3) {
+  animation-delay: 0.45s;
+}
+
+
+.fade-card.show {
+  animation: cardFadeUp 0.9s ease forwards;
+}
+
+/* ===== 卡片滚动出现动画 ===== */
+.fade-card.show {
+  animation: cardFadeUp 0.9s ease forwards;
+}
+
+@keyframes cardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero.show .hero-title {
+  animation: heroFade 0.8s ease forwards;
+}
+
+.hero.show .hero-sub {
+  animation: heroFade 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.hero.show .hero-sub-2 {
+  animation: heroFade 0.8s ease forwards;
+  animation-delay: 0.35s;
+}
+
+.hero.show .hero-btn {
+  animation: heroFade 0.8s ease forwards;
+  animation-delay: 0.55s;
+}
+
+/* Case Studies 图片默认隐藏 */
+.case-grid img {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* 出现动画 */
+.case-grid img.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+/* Case Studies 图片基础 */
+.case-grid img {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* 图片出现 */
+.case-grid img.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* ===== 第 4 步（最终正确版）===== */
+.case-grid img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 18px;
+
+  border: 1px solid rgba(201, 162, 77, 0.25);
+  box-shadow: 0 0 0 rgba(201, 162, 77, 0);
+
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.6s ease;
+}
+
+.case-grid img:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 28px 60px rgba(0,0,0,0.55);
+  border-color: rgba(201, 162, 77, 0.7);
+}
+
+
+/* ===== 高级 Footer ===== */
+.site-footer {
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.95),
+    rgba(0,0,0,0.85)
+  );
+  padding: 80px 20px 60px;
+  margin-top: 120px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+/* 左边文字 */
+.footer-left h3 {
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  color: #c9a24d;
+}
+
+.footer-left p {
+  font-size: 14px;
+  line-height: 1.8;
+  opacity: 0.8;
+}
+
+/* 右边 icon */
+.footer-right {
+  display: flex;
+  gap: 18px;
+}
+
+.social-icon {
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(201,162,77,0.4);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+}
+
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: #c9a24d;
+}
+
+.social-icon:hover {
+  background: rgba(201,162,77,0.15);
+  transform: translateY(-3px);
+  border-color: rgba(201,162,77,0.8);
+}
+
+/* 手机优化 */
+@media (max-width: 768px) {
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;   /* ⭐ 这一行是关键 */
+    text-align: center;
+  }
+
+  .footer-info-block {
+    align-items: center;
+    text-align: center;    /* ⭐ 强制文字居中 */
+  }
+
+  .footer-text {
+    text-align: center;    /* ⭐ 地址 / 电话 / email */
+  }
+
+  .footer-right {
+    justify-content: center;
+    margin-top: 28px;
+  }
+}
+
+/* Footer 标题 */
+.footer-title {
+  color: #c9a24d; /* 金色 */
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* ===== Footer 基础 ===== */
+.site-footer {
+  background: #000;
+  padding: 80px 20px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* 整个区块 */
+.footer-info-block {
+  max-width: 520px;
+}
+
+/* 公司名 */
+.footer-title {
+  margin: 0 0 24px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #c9a24d; /* 金色 */
+  line-height: 1.4;
+}
+
+/* 括号公司名 */
+.footer-company {
+  font-size: 16px;
+  font-weight: 500;
+  color: #c9a24d; /* 同样金色 */
+}
+
+/* 地址 / 电话 */
+.footer-text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #e5e5e5;
+}
+
+/* Gmail */
+.footer-email {
+  color: #c9a24d;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-email:hover {
+  text-decoration: underline;
+}
