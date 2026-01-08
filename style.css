@@ -119,6 +119,23 @@ p {
   border-color: rgba(201, 162, 77, 0.7);
 }
 
+/* ===== 修复服务卡片链接样式（SEO + 视觉一致）===== */
+.card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card h3,
+.card p {
+  color: inherit;
+}
+
+.card:hover {
+  text-decoration: none;
+}
+
+
 /* Footer */
 .footer {
   text-align: center;
