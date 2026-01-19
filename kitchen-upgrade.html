@@ -13,6 +13,24 @@
   gtag('config', 'AW-17875256446');
 </script>
 
+  <!-- Event snippet for 联系人 conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17875256446/Ik2eCJHYpugbEP6Iy8tC',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
+
 <title>Kitchen Upgrade Works in KL & Selangor | YS House Beautician</title>
 
 <meta name="description"
@@ -119,4 +137,5 @@ content="Kitchen upgrade and minor improvement works in Kuala Lumpur, Selangor &
 
 </body>
 </html>
+
 
